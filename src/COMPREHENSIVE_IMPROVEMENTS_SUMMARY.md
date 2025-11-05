@@ -680,7 +680,7 @@ Quality Score: 95/100
 ### Contact
 - **Technical Issues**: GitHub Issues
 - **Feature Requests**: GitHub Discussions
-- **General Support**: support@devtrackafrica.com
+- **General Support**: support@devtrack.africa
 
 ---
 
