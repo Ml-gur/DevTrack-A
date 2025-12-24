@@ -71,19 +71,19 @@ function shouldSuppressWarning(args: any[]): boolean {
 export function initializeWarningSuppression() {
   // Store suppression state on window to ensure we only log once
   if (typeof window !== 'undefined') {
-    (window as any).__devTrackWarningSuppressionInitialized = false;
+    (window as any).__devTrackAfricaWarningSuppressionInitialized = false;
   }
   
   // Override console.warn
   console.warn = (...args: any[]) => {
     if (shouldSuppressWarning(args)) {
       // Log suppression notice only once
-      if (typeof window !== 'undefined' && !(window as any).__devTrackWarningSuppressionInitialized) {
+      if (typeof window !== 'undefined' && !(window as any).__devTrackAfricaWarningSuppressionInitialized) {
         originalWarn(
           '⚠️ DevTrack Africa: Suppressing React defaultProps deprecation warnings from third-party libraries (react-beautiful-dnd, react-redux). ' +
           'These libraries are not yet updated for React 18+ but are still functional. This is expected behavior.'
         );
-        (window as any).__devTrackWarningSuppressionInitialized = true;
+        (window as any).__devTrackAfricaWarningSuppressionInitialized = true;
       }
       return;
     }
@@ -133,19 +133,19 @@ export function withSuppressedWarnings<T>(fn: () => T): T {
 
 /**
  * Exposes the suppression status for debugging
- * Available in browser console as: window.DevTrackWarnings
+ * Available in browser console as: window.DevTrackAfricaWarnings
  */
 if (typeof window !== 'undefined') {
-  (window as any).DevTrackWarnings = {
+  (window as any).DevTrackAfricaWarnings = {
     isActive: () => console.warn !== originalWarn,
     disable: () => restoreOriginalWarnings(),
     enable: () => initializeWarningSuppression(),
     status: () => {
       const isActive = console.warn !== originalWarn;
-      console.log(`🔍 DevTrack Warning Suppression Status: ${isActive ? '✅ ACTIVE' : '❌ DISABLED'}`);
-      console.log('📝 To disable: window.DevTrackWarnings.disable()');
-      console.log('📝 To enable: window.DevTrackWarnings.enable()');
-      console.log('📝 To check status: window.DevTrackWarnings.status()');
+      console.log(`🔍 DevTrack Africa Warning Suppression Status: ${isActive ? '✅ ACTIVE' : '❌ DISABLED'}`);
+      console.log('📝 To disable: window.DevTrackAfricaWarnings.disable()');
+      console.log('📝 To enable: window.DevTrackAfricaWarnings.enable()');
+      console.log('📝 To check status: window.DevTrackAfricaWarnings.status()');
       return isActive;
     }
   };

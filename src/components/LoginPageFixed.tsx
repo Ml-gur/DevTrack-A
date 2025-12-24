@@ -153,7 +153,7 @@ export default function LoginPage({ onBack, onSuccess, onNavigateToRegister }: L
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-green-600 rounded-lg flex items-center justify-center shadow-sm">
               <span className="text-white font-bold">DT</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">DevTrack <span className="text-green-600">Africa</span></span>
+            <span className="text-xl font-bold text-gray-900">DevTrack Africa</span>
           </div>
           <CardTitle className="text-gray-900">Welcome Back</CardTitle>
           <CardDescription className="text-gray-600">
